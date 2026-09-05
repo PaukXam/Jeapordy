@@ -150,5 +150,38 @@
                 }
             ]
         }
+    ],
+    "Teams": [
+        {
+            "name": "Team 1",
+            "score": 0,
+            "spieler": [
+                "Timo R",
+                "Julius",
+                "Noah",
+                "Timo B.(Raclett)"
+                
+            ]
+        },
+        {
+            "name": "Team 2",
+            "score": 0,
+            "spieler": [
+                "Mario",
+                "Levi",
+                "Luca (Curry King Kane)",
+                "Johann"
+            ]       
+        },
+        {
+            "name": "Team 3",
+            "score": 0,
+            "spieler": [
+                "Klaus S",
+                "Niklas ",
+                "Michi (1,2 Tip)",
+                "Tim (Timgioh)"
+            ]
+        }
     ]
 }
