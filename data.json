@@ -1,0 +1,154 @@
+{
+    "Kategorie": [
+        {
+            "name": "Fußball Allgemein",
+            "question": [
+                {
+                    "points": 100,
+                    "question": "Wie schnell wurde das schnellste Tor der Bundesliga-Geschichte geschossen?",
+                    "answer": "9 Sekunden (Karim Bellarabi & Kevin Volland)"
+                },
+                {
+                    "points": 200,
+                    "question": "Wer ist jüngster Bundesliga-Torschütze aller Zeiten?",
+                    "answer": "Youssoufa Moukoko"
+                },
+                {
+                    "points": 300,
+                    "question": "Welcher Verein wurde 1998 als Aufsteiger direkt deutscher Meister?",
+                    "answer": "1. FC Kaiserslautern"
+                },
+                {
+                    "points": 400,
+                    "question": "Wer war der erste deutsche Gewinner des Ballon d'Or?",
+                    "answer": "Gerd Müller (1970)"
+                },
+                {
+                    "points": 500,
+                    "question": "Welches Land gewann die WM, obwohl sich das Team gar nicht für das Turnier qualifiziert hatte?",
+                    "answer": "Dänemark (1992)"
+                }
+            ]
+        },
+        {
+            "name": "1. Kreisklasse",
+            "question": [
+                {
+                    "points": 100,
+                    "question": "Der SV Evenkamp war im vergangenen Jahr die Mannschaft mit den meisten Toren. Wie viele Tore hatte der SV Evenkamp?",
+                    "answer": "71 Tore"
+                },
+                {
+                    "points": 200,
+                    "question": "Tom Hinrichs vom SV Scharrel schoss in der vergangenen Saison die meisten Treffer. Wie viele Tore hatte Tom Hinrichs?",
+                    "answer": "21 Tore"
+                },
+                {
+                    "points": 300,
+                    "question": "Welche Mannschaften stiegen in der vergangenen Spielzeit ab?",
+                    "answer": "SV Höltinghausen und SV Nikolausdorf II"
+                },
+                {
+                    "points": 400,
+                    "question": "In der vergangenen Spielzeit stellte der SV Mehrenkamp die meisten Torschützen in der Top 10 der Torjägerliste. Wie viele Spieler waren es?",
+                    "answer": "3 Spieler"
+                },
+                {
+                    "points": 500,
+                    "question": "Der SF Sevelten war in der vergangenen Spielzeit die unsportlichste Mannschaft. Wie viele Gelbe Karten hatte der SF Sevelten (Spieler und Offizielle)?",
+                    "answer": "80 Gelbe Karten"
+                }
+            ]
+        },
+        {
+            "name": "Wer bin ich?",
+            "question": [
+                {
+                    "points": 100,
+                    "question": "Ich spielte mit Cristiano Ronaldo, Lionel Messi, Zlatan Ibrahimović und Thierry Henry zusammen. Wer bin ich?",
+                    "answer": "Gerard Piqué (Man United mit Ronaldo; Barcelona mit Messi, Zlatan und Henry)"
+                },
+                {
+                    "points": 200,
+                    "question": "Mein Karriereweg: Inter Mailand → Manchester City → AC Mailand → Liverpool → AC Mailand (Leihe) → OGC Nizza → Olympique Marseille → Brescia Calcio → AC Monza → Adana Demirspor → FC Sion → Adana Demirspor → Genoa. Wer bin ich?",
+                    "answer": "Mario Balotelli"
+                },
+                {
+                    "points": 300,
+                    "question": "tbd. 300",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 400,
+                    "question": "tbd. 400",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 500,
+                    "question": "tbd. 500",
+                    "answer": "tbd."
+                }
+            ]
+        },
+        {
+            "name": "2. Herren",
+            "question": [
+                {
+                    "points": 100,
+                    "question": "tbd. 100",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 200,
+                    "question": "tbd. 200",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 300,
+                    "question": "tbd. 300",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 400,
+                    "question": "tbd. 400",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 500,
+                    "question": "tbd. 500",
+                    "answer": "tbd."
+                }
+            ]
+        },
+        {
+            "name": "Lass dich überraschen",
+            "question": [
+                {
+                    "points": 100,
+                    "question": "tbd. 100",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 200,
+                    "question": "tbd. 200",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 300,
+                    "question": "tbd. 300",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 400,
+                    "question": "tbd. 400",
+                    "answer": "tbd."
+                },
+                {
+                    "points": 500,
+                    "question": "tbd. 500",
+                    "answer": "tbd."
+                }
+            ]
+        }
+    ]
+}
