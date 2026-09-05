@@ -4,14 +4,12 @@
 // und wird vom Workflow weiter unten aufgerufen.
 // ================================================
 
-// Flow: Daten von der data.json holen
 function datenLaden() {
   return fetch("data.json").then(function (antwort) {
     return antwort.json();
   });
 }
 
-// Flow: sucht in einer Kategorie die Frage mit einer bestimmten Punktzahl
 function frageFinden(kategorie, punktzahl) {
   for (var f = 0; f < kategorie.question.length; f++) {
     var frage = kategorie.question[f];
@@ -19,10 +17,9 @@ function frageFinden(kategorie, punktzahl) {
       return frage;
     }
   }
-  return null; // keine passende Frage gefunden
+  return null; 
 }
 
-// Flow: baut die Kopfzeile mit den Kategorienamen
 function kopfzeileBauen(kategorien) {
   var kopfzeile = document.createElement("tr");
 
@@ -35,7 +32,6 @@ function kopfzeileBauen(kategorien) {
   return kopfzeile;
 }
 
-// Flow: baut eine einzelne Zelle (Kachel) für eine Frage
 function zelleBauen(frage) {
   var zelle = document.createElement("td");
 
@@ -51,7 +47,6 @@ function zelleBauen(frage) {
   return zelle;
 }
 
-// Flow: baut eine ganze Zeile (eine Punktzahl, quer über alle Kategorien)
 function zeileBauen(punktzahl, kategorien) {
   var zeile = document.createElement("tr");
 
@@ -64,9 +59,9 @@ function zeileBauen(punktzahl, kategorien) {
   return zeile;
 }
 
-// Flow: öffnet das Frage-Fenster (Modal)
 function modalOeffnen(frage, zelle) {
   aktuelleZelle = zelle;
+  aktuelleFrage = frage;
 
   modalFrage.textContent = frage.question;
   modalAntwort.textContent = frage.answer;
@@ -76,19 +71,35 @@ function modalOeffnen(frage, zelle) {
   overlay.classList.add("active");
 }
 
-// Flow: zeigt die Antwort im Modal an
 function modalAntwortZeigen() {
   modalAntwort.classList.add("shown");
   buttonAntwortZeigen.style.display = "none";
+  teamButtons.classList.add("shown");
 }
 
-// Flow: schließt das Modal und markiert die Kachel als benutzt
+function punkteVergeben(team) {
+  if (team === "team1") {
+    team1Punkte = team1Punkte + aktuelleFrage.points;
+    team1ScoreFeld.textContent = team1Punkte;
+  } else if (team === "team2") {
+    team2Punkte = team2Punkte + aktuelleFrage.points;
+    team2ScoreFeld.textContent = team2Punkte;
+  } else if (team === "team3") {
+    team3Punkte = team3Punkte + aktuelleFrage.points;
+    team3ScoreFeld.textContent = team3Punkte;
+  }
+
+  modalSchliessen();
+}
+
 function modalSchliessen() {
   if (aktuelleZelle !== null) {
     aktuelleZelle.classList.add("used");
   }
+  teamButtons.classList.remove("shown");
   overlay.classList.remove("active");
   aktuelleZelle = null;
+  aktuelleFrage = null;
 }
 
 
@@ -101,8 +112,20 @@ var overlay = document.getElementById("overlay");
 var modalFrage = document.getElementById("modal-clue");
 var modalAntwort = document.getElementById("modal-answer");
 var buttonAntwortZeigen = document.getElementById("btn-reveal");
-var buttonSchliessen = document.getElementById("btn-close");
+var teamButtons = document.getElementById("team-buttons");
+var buttonTeam1 = document.getElementById("btn-team1");
+var buttonTeam2 = document.getElementById("btn-team2");
+var buttonTeam3 = document.getElementById("btn-team3");
+var buttonNiemand = document.getElementById("btn-none");
+var team1ScoreFeld = document.getElementById("team1-score");
+var team2ScoreFeld = document.getElementById("team2-score");
+var team3ScoreFeld = document.getElementById("team3-score");
+
 var aktuelleZelle = null;
+var aktuelleFrage = null;
+var team1Punkte = 0;
+var team2Punkte = 0;
+var team3Punkte = 0;
 
 function tabelleAufbauen(daten) {
   var kategorien = daten.Kategorie;
@@ -123,6 +146,17 @@ function spielStarten() {
 }
 
 buttonAntwortZeigen.onclick = modalAntwortZeigen;
-buttonSchliessen.onclick = modalSchliessen;
+buttonTeam1.onclick = function () {
+  punkteVergeben("team1");
+};
+buttonTeam2.onclick = function () {
+  punkteVergeben("team2");
+ };
+buttonTeam3.onclick = function () {
+  punkteVergeben("team3");
+};
+buttonNiemand.onclick = function () {
+  punkteVergeben("niemand");
+};
 
 spielStarten();

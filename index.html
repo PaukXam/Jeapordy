@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <title>Jeopardy – Vereinsquiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <h1>Jeopardy</h1>
@@ -15,20 +13,37 @@
     <caption>Vereinsquiz</caption>
   </table>
 
+
+  <table class="score-board" id="score-board">
+    <tr>
+      <th>Team 1</th>
+      <th>Team 2</th>
+      <th>Team 3</th>
+    </tr>
+    <tr>
+      <td id="team1-score">0</td>
+      <td id="team2-score">0</td>
+      <td id="team3-score">0</td>
+    </tr>
+  </table>
+
+
   <div class="overlay" id="overlay">
     <div class="modal">
       <p class="clue" id="modal-clue"></p>
       <p class="answer" id="modal-answer"></p>
+
       <button id="btn-reveal">Antwort zeigen</button>
-      <button id="btn-close">Schließen</button>
+
+      <div class="team-buttons" id="team-buttons">
+        <button id="btn-team1">Punkt für Team 1</button>
+        <button id="btn-team2">Punkt für Team 2</button>
+        <button id="btn-team3">Punkt für Team 3</button>
+        <button id="btn-none">Niemand richtig</button>
+      </div>
     </div>
   </div>
 
-  <table id="score-board">
-    <caption>Aktueller Stand</caption>
-  </table>
-  
   <script src="script.js"></script>
 </body>
-
 </html>

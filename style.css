@@ -15,29 +15,31 @@ h1 {
 table#board {
   border-collapse: collapse;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 caption {
   font-weight: bold;
-  margin-bottom: 12px;
+  font-size: 20px;
+  margin-bottom: 16px;
 }
 
 th, td {
   border: 1px solid rgba(232, 185, 75, 0.4);
-  padding: 16px;
+  padding: 20px 16px;
   text-align: center;
 }
 
 th {
   background: #142850;
+  font-size: 16px;
 }
 
 td {
   background: #0d2045;
   color: #E8B94B;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -102,4 +104,39 @@ button {
   cursor: pointer;
   background: #E8B94B;
   color: #0B1D3A;
+}
+
+/* Punktestand-Tabelle unten */
+table.score-board {
+  margin-top: 48px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+}
+
+.score-board th, .score-board td {
+  border: 1px solid rgba(232, 185, 75, 0.4);
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.score-board th {
+  background: #142850;
+  font-size: 16px;
+}
+
+.score-board td {
+  background: #0d2045;
+  color: #4C9F70;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.team-buttons {
+  display: none;
+}
+
+.team-buttons.shown {
+  display: block;
 }
