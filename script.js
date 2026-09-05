@@ -1,98 +1,128 @@
-fetch("data.json")
-  .then(function (antwort) {
+// ================================================
+// FLOWS
+// Jede Funktion hier macht genau EINE Sache
+// und wird vom Workflow weiter unten aufgerufen.
+// ================================================
+
+// Flow: Daten von der data.json holen
+function datenLaden() {
+  return fetch("data.json").then(function (antwort) {
     return antwort.json();
-  })
-  .then(function (daten) {
-    tabelleAufbauen(daten);
   });
+}
 
+// Flow: sucht in einer Kategorie die Frage mit einer bestimmten Punktzahl
+function frageFinden(kategorie, punktzahl) {
+  for (var f = 0; f < kategorie.question.length; f++) {
+    var frage = kategorie.question[f];
+    if (frage.points === punktzahl) {
+      return frage;
+    }
+  }
+  return null; // keine passende Frage gefunden
+}
 
-function tabelleAufbauen(daten) {
-  var kategorien = daten.Kategorie; 
-  var tabelle = document.getElementById("board");
-
+// Flow: baut die Kopfzeile mit den Kategorienamen
+function kopfzeileBauen(kategorien) {
   var kopfzeile = document.createElement("tr");
 
   for (var i = 0; i < kategorien.length; i++) {
-    var kategorie = kategorien[i];
-
     var th = document.createElement("th");
-    th.textContent = kategorie.name;
-
+    th.textContent = kategorien[i].name;
     kopfzeile.appendChild(th);
   }
 
-  tabelle.appendChild(kopfzeile);
+  return kopfzeile;
+}
 
-  var punktzahlen = [100, 200, 300, 400, 500];
+// Flow: baut eine einzelne Zelle (Kachel) für eine Frage
+function zelleBauen(frage) {
+  var zelle = document.createElement("td");
 
-  for (var p = 0; p < punktzahlen.length; p++) {
-    var aktuellePunktzahl = punktzahlen[p];
-    var zeile = document.createElement("tr");
-
-    for (var k = 0; k < kategorien.length; k++) {
-      var kat = kategorien[k];
-      var gefundeneFrage = null;
-
-      for (var f = 0; f < kat.question.length; f++) {
-        var frage = kat.question[f];
-        if (frage.points === aktuellePunktzahl) {
-          gefundeneFrage = frage;
-        }
-      }
-
-      var zelle = document.createElement("td");
-
-      if (gefundeneFrage !== null) {
-        zelle.textContent = gefundeneFrage.points;
-        macheZelleKlickbar(zelle, gefundeneFrage);
-      } else {
-        zelle.textContent = "-";
-      }
-
-      zeile.appendChild(zelle);
-    }
-
-    tabelle.appendChild(zeile);
+  if (frage !== null) {
+    zelle.textContent = frage.points;
+    zelle.onclick = function () {
+      modalOeffnen(frage, zelle);
+    };
+  } else {
+    zelle.textContent = "-";
   }
+
+  return zelle;
 }
 
+// Flow: baut eine ganze Zeile (eine Punktzahl, quer über alle Kategorien)
+function zeileBauen(punktzahl, kategorien) {
+  var zeile = document.createElement("tr");
 
-function macheZelleKlickbar(zelle, frage) {
-  zelle.onclick = function () {
-    fensterOeffnen(frage, zelle);
-  };
+  for (var k = 0; k < kategorien.length; k++) {
+    var frage = frageFinden(kategorien[k], punktzahl);
+    var zelle = zelleBauen(frage);
+    zeile.appendChild(zelle);
+  }
+
+  return zeile;
 }
 
-var overlay = document.getElementById("overlay");
-var modalFrage = document.getElementById("modal-clue");
-var modalAntwort = document.getElementById("modal-answer");
-var buttonAntwortZeigen = document.getElementById("btn-reveal");
-var buttonSchliessen = document.getElementById("btn-close");
-
-var aktuelleZelle = null;
-
-function fensterOeffnen(frage, zelle) {
+// Flow: öffnet das Frage-Fenster (Modal)
+function modalOeffnen(frage, zelle) {
   aktuelleZelle = zelle;
 
   modalFrage.textContent = frage.question;
   modalAntwort.textContent = frage.answer;
-
   modalAntwort.classList.remove("shown");
   buttonAntwortZeigen.style.display = "inline-block";
 
   overlay.classList.add("active");
 }
 
-buttonAntwortZeigen.onclick = function () {
-  modalAntwort.classList.add("shown"); 
+// Flow: zeigt die Antwort im Modal an
+function modalAntwortZeigen() {
+  modalAntwort.classList.add("shown");
   buttonAntwortZeigen.style.display = "none";
-};
+}
 
-buttonSchliessen.onclick = function () {
+// Flow: schließt das Modal und markiert die Kachel als benutzt
+function modalSchliessen() {
   if (aktuelleZelle !== null) {
-    aktuelleZelle.classList.add("used"); 
+    aktuelleZelle.classList.add("used");
   }
-  overlay.classList.remove("active"); 
+  overlay.classList.remove("active");
   aktuelleZelle = null;
-};
+}
+
+
+// ================================================
+// WORKFLOW
+// ================================================
+
+var tabelle = document.getElementById("board");
+var overlay = document.getElementById("overlay");
+var modalFrage = document.getElementById("modal-clue");
+var modalAntwort = document.getElementById("modal-answer");
+var buttonAntwortZeigen = document.getElementById("btn-reveal");
+var buttonSchliessen = document.getElementById("btn-close");
+var aktuelleZelle = null;
+
+function tabelleAufbauen(daten) {
+  var kategorien = daten.Kategorie;
+  var punktzahlen = [100, 200, 300, 400, 500];
+
+  tabelle.appendChild(kopfzeileBauen(kategorien));
+
+  for (var p = 0; p < punktzahlen.length; p++) {
+    var zeile = zeileBauen(punktzahlen[p], kategorien);
+    tabelle.appendChild(zeile);
+  }
+}
+
+function spielStarten() {
+  datenLaden().then(function (daten) {
+    tabelleAufbauen(daten);
+  });
+}
+
+buttonAntwortZeigen.onclick = modalAntwortZeigen;
+buttonSchliessen.onclick = modalSchliessen;
+
+spielStarten();
