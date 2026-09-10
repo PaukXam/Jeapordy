@@ -17,7 +17,7 @@ function frageFinden(kategorie, punktzahl) {
       return frage;
     }
   }
-  return null; 
+  return null;
 }
 
 function kopfzeileBauen(kategorien) {
@@ -80,13 +80,10 @@ function modalAntwortZeigen() {
 function punkteVergeben(team) {
   if (team === "team1") {
     team1Punkte = team1Punkte + aktuelleFrage.points;
-    team1ScoreFeld.textContent = team1Punkte;
   } else if (team === "team2") {
     team2Punkte = team2Punkte + aktuelleFrage.points;
-    team2ScoreFeld.textContent = team2Punkte;
   } else if (team === "team3") {
     team3Punkte = team3Punkte + aktuelleFrage.points;
-    team3ScoreFeld.textContent = team3Punkte;
   }
 
   modalSchliessen();
@@ -120,6 +117,8 @@ var buttonNiemand = document.getElementById("btn-none");
 var team1ScoreFeld = document.getElementById("team1-score");
 var team2ScoreFeld = document.getElementById("team2-score");
 var team3ScoreFeld = document.getElementById("team3-score");
+var buttonPunktestandZeigen = document.getElementById("btn-score-reveal");
+
 
 var aktuelleZelle = null;
 var aktuelleFrage = null;
@@ -145,18 +144,38 @@ function spielStarten() {
   });
 }
 
+function punktestandVerstecken() {
+  team1ScoreFeld.textContent = "?";
+  team2ScoreFeld.textContent = "?";
+  team3ScoreFeld.textContent = "?";
+}
+
+function punktestandAufdecken() {
+  team1ScoreFeld.textContent = team1Punkte;
+  team2ScoreFeld.textContent = team2Punkte;
+  team3ScoreFeld.textContent = team3Punkte;
+}
+
 buttonAntwortZeigen.onclick = modalAntwortZeigen;
 buttonTeam1.onclick = function () {
   punkteVergeben("team1");
 };
 buttonTeam2.onclick = function () {
   punkteVergeben("team2");
- };
+};
 buttonTeam3.onclick = function () {
   punkteVergeben("team3");
 };
 buttonNiemand.onclick = function () {
   punkteVergeben("niemand");
 };
+
+buttonPunktestandZeigen.onmousedown = punktestandAufdecken;
+buttonPunktestandZeigen.onmouseup = punktestandVerstecken;
+buttonPunktestandZeigen.onmouseleave = punktestandVerstecken;
+buttonPunktestandZeigen.ontouchstart = punktestandAufdecken;
+buttonPunktestandZeigen.ontouchend = punktestandVerstecken;
+
+punktestandVerstecken();
 
 spielStarten();
