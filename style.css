@@ -54,7 +54,6 @@ td.empty {
   color: rgba(244, 241, 234, 0.15);
 }
 
-/* Modal */
 .overlay {
   position: fixed;
   inset: 0;
@@ -79,16 +78,44 @@ td.empty {
   text-align: center;
 }
 
+.category-label {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #E8B94B;
+  background: rgba(232, 185, 75, 0.12);
+  border: 1px solid rgba(232, 185, 75, 0.5);
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin-bottom: 20px;
+}
+
 .clue {
   font-size: 20px;
   margin-bottom: 16px;
+  white-space: pre-line;
+}
+
+#modal-image {
+  display: none;
+  max-width: 100%;
+  max-height: 260px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+#modal-image.shown {
+  display: inline-block;
 }
 
 .answer {
   color: #4C9F70;
   font-weight: bold;
   display: none;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  margin-top: 60px;
 }
 
 .answer.shown {
@@ -106,12 +133,11 @@ button {
   color: #0B1D3A;
 }
 
-/* Punktestand-Tabelle unten */
 table.score-board {
   margin-top: 48px;
   border-collapse: collapse;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
 }
 
 .score-board th, .score-board td {
