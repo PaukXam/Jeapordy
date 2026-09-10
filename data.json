@@ -95,28 +95,28 @@
             "question": [
                 {
                     "points": 100,
-                    "question": "tbd. 100",
-                    "answer": "tbd."
+                    "question": "In der Saison 2018/2019 stieg die 2. Herren souverän in die 1. Kreisklasse auf. Wie viele Tore schoss das Team in dieser Saison?",
+                    "answer": "75 Tore (in 26 Spieltagen)"
                 },
                 {
                     "points": 200,
-                    "question": "tbd. 200",
-                    "answer": "tbd."
+                    "question": "Am 08.03.2026 wurde FCL-II-Spieler Louis Ameskamp mit Gelb-Rot vom Platz gestellt. In welcher Minute verließ er den Platz? (Toleranz: +/- 2 Minuten)",
+                    "answer": "31. Minute"
                 },
                 {
                     "points": 300,
-                    "question": "tbd. 300",
-                    "answer": "tbd."
+                    "question": "Wer war in der Saison 2024/2025 der drittbeste Ligatorschütze der 2. Herren?",
+                    "answer": "Ortmann/Kreßmann (3 Tore, punktgleich auf Platz 3)"
                 },
                 {
                     "points": 400,
-                    "question": "tbd. 400",
-                    "answer": "tbd."
+                    "question": "Von welchem Verein kam der letzte Spieler, der gegen die FCL II einen Hattrick geschossen hat?",
+                    "answer": "Jonas Eilers vom SV Bösel (24.04.2026)"
                 },
                 {
                     "points": 500,
-                    "question": "tbd. 500",
-                    "answer": "tbd."
+                    "question": "Dauerbrenner Noah-Reinhold Böckmann kam in der Saison 2025/2026 auf 2430 Ligaminuten. Wie viele Minuten hatte sein Nachfolger Tobias Wolter? (Toleranz: +/- 90 Minuten)",
+                    "answer": "1669 Minuten (Differenz: 761 Minuten)"
                 }
             ]
         },
@@ -160,7 +160,6 @@
                 "Julius",
                 "Noah",
                 "Timo B.(Raclett)"
-                
             ]
         },
         {
@@ -171,7 +170,7 @@
                 "Levi",
                 "Luca (Curry King Kane)",
                 "Johann"
-            ]       
+            ]
         },
         {
             "name": "Team 3",
