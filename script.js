@@ -1,9 +1,3 @@
-// ================================================
-// FLOWS
-// Jede Funktion hier macht genau EINE Sache
-// und wird vom Workflow weiter unten aufgerufen.
-// ================================================
-
 function datenLaden() {
   return fetch("data.json").then(function (antwort) {
     return antwort.json();
@@ -32,13 +26,13 @@ function kopfzeileBauen(kategorien) {
   return kopfzeile;
 }
 
-function zelleBauen(frage) {
+function zelleBauen(frage, kategorieName) {
   var zelle = document.createElement("td");
 
   if (frage !== null) {
     zelle.textContent = frage.points;
     zelle.onclick = function () {
-      modalOeffnen(frage, zelle);
+      modalOeffnen(frage, zelle, kategorieName);
     };
   } else {
     zelle.textContent = "-";
@@ -52,21 +46,31 @@ function zeileBauen(punktzahl, kategorien) {
 
   for (var k = 0; k < kategorien.length; k++) {
     var frage = frageFinden(kategorien[k], punktzahl);
-    var zelle = zelleBauen(frage);
+    var zelle = zelleBauen(frage, kategorien[k].name);
     zeile.appendChild(zelle);
   }
 
   return zeile;
 }
 
-function modalOeffnen(frage, zelle) {
+function modalOeffnen(frage, zelle, kategorieName) {
   aktuelleZelle = zelle;
   aktuelleFrage = frage;
 
+  modalKategorie.textContent = kategorieName;
   modalFrage.textContent = frage.question;
   modalAntwort.textContent = frage.answer;
   modalAntwort.classList.remove("shown");
   buttonAntwortZeigen.style.display = "inline-block";
+
+  // neu: Bild nur zeigen, wenn die Frage eins hat
+  if (frage.image) {
+    modalBild.src = frage.image;
+    modalBild.classList.add("shown");
+  } else {
+    modalBild.src = "";
+    modalBild.classList.remove("shown");
+  }
 
   overlay.classList.add("active");
 }
@@ -99,14 +103,23 @@ function modalSchliessen() {
   aktuelleFrage = null;
 }
 
+function punktestandVerstecken() {
+  team1ScoreFeld.textContent = "?";
+  team2ScoreFeld.textContent = "?";
+  team3ScoreFeld.textContent = "?";
+}
 
-// ================================================
-// WORKFLOW
-// ================================================
+function punktestandAufdecken() {
+  team1ScoreFeld.textContent = team1Punkte;
+  team2ScoreFeld.textContent = team2Punkte;
+  team3ScoreFeld.textContent = team3Punkte;
+}
 
 var tabelle = document.getElementById("board");
 var overlay = document.getElementById("overlay");
+var modalKategorie = document.getElementById("modal-category");
 var modalFrage = document.getElementById("modal-clue");
+var modalBild = document.getElementById("modal-image");
 var modalAntwort = document.getElementById("modal-answer");
 var buttonAntwortZeigen = document.getElementById("btn-reveal");
 var teamButtons = document.getElementById("team-buttons");
@@ -117,8 +130,7 @@ var buttonNiemand = document.getElementById("btn-none");
 var team1ScoreFeld = document.getElementById("team1-score");
 var team2ScoreFeld = document.getElementById("team2-score");
 var team3ScoreFeld = document.getElementById("team3-score");
-var buttonPunktestandZeigen = document.getElementById("btn-score-reveal");
-
+var buttonPunktestandZeigen = document.getElementById("btn-punktestand-zeigen");
 
 var aktuelleZelle = null;
 var aktuelleFrage = null;
@@ -144,18 +156,6 @@ function spielStarten() {
   });
 }
 
-function punktestandVerstecken() {
-  team1ScoreFeld.textContent = "?";
-  team2ScoreFeld.textContent = "?";
-  team3ScoreFeld.textContent = "?";
-}
-
-function punktestandAufdecken() {
-  team1ScoreFeld.textContent = team1Punkte;
-  team2ScoreFeld.textContent = team2Punkte;
-  team3ScoreFeld.textContent = team3Punkte;
-}
-
 buttonAntwortZeigen.onclick = modalAntwortZeigen;
 buttonTeam1.onclick = function () {
   punkteVergeben("team1");
@@ -169,7 +169,6 @@ buttonTeam3.onclick = function () {
 buttonNiemand.onclick = function () {
   punkteVergeben("niemand");
 };
-
 buttonPunktestandZeigen.onmousedown = punktestandAufdecken;
 buttonPunktestandZeigen.onmouseup = punktestandVerstecken;
 buttonPunktestandZeigen.onmouseleave = punktestandVerstecken;
@@ -177,5 +176,4 @@ buttonPunktestandZeigen.ontouchstart = punktestandAufdecken;
 buttonPunktestandZeigen.ontouchend = punktestandVerstecken;
 
 punktestandVerstecken();
-
 spielStarten();
