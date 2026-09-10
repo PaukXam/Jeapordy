@@ -13,7 +13,6 @@
     <caption>Vereinsquiz</caption>
   </table>
 
-
   <table class="score-board" id="score-board">
     <tr>
       <th>Team 1</th>
@@ -26,13 +25,14 @@
       <td id="team3-score">0</td>
     </tr>
   </table>
-  <div class="reset-button">
-    <button id="btn-score-reveal">Punktestand anzeigen</button>
-  </div>
+
+  <button id="btn-punktestand-zeigen">Punktestand zeigen</button>
 
   <div class="overlay" id="overlay">
     <div class="modal">
+      <p class="category-label" id="modal-category"></p>
       <p class="clue" id="modal-clue"></p>
+      <img id="modal-image" src="" alt="Bild zur Frage">
       <p class="answer" id="modal-answer"></p>
 
       <button id="btn-reveal">Antwort zeigen</button>
