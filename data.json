@@ -65,28 +65,28 @@
             "question": [
                 {
                     "points": 100,
-                    "question": "Ich spielte mit Cristiano Ronaldo, Lionel Messi, Zlatan Ibrahimović und Thierry Henry zusammen. Wer bin ich?",
-                    "answer": "Gerard Piqué (Man United mit Ronaldo; Barcelona mit Messi, Zlatan und Henry)"
+                    "answer": "Luca Curry King Kane Kressmann",
+                    "image": "images/braune-sambas.png"
                 },
                 {
                     "points": 200,
-                    "question": "Mein Karriereweg: Inter Mailand → Manchester City → AC Mailand → Liverpool → AC Mailand (Leihe) → OGC Nizza → Olympique Marseille → Brescia Calcio → AC Monza → Adana Demirspor → FC Sion → Adana Demirspor → Genoa. Wer bin ich?",
-                    "answer": "Mario Balotelli"
+                    "question": "🧲",
+                    "answer": "Max Kaup"
                 },
                 {
                     "points": 300,
-                    "question": "tbd. 300",
-                    "answer": "tbd."
+                    "question": "1,2 + 🕺🏼",
+                    "answer": "Spitzmichel"
                 },
                 {
                     "points": 400,
-                    "question": "tbd. 400",
-                    "answer": "tbd."
+                    "question": "🟨 + 🥚 + 💰",
+                    "answer": "Maxi Imbusch"
                 },
                 {
                     "points": 500,
-                    "question": "tbd. 500",
-                    "answer": "tbd."
+                    "question": "",
+                    "answer": "Nicolas Anelka"
                 }
             ]
         },
@@ -100,18 +100,18 @@
                 },
                 {
                     "points": 200,
+                    "question": "Von welchem Verein kam der letzte Spieler, der gegen die FCL II einen Hattrick geschossen hat?",
+                    "answer": "Jonas Eilers vom SV Bösel (24.04.2026)"
+                },
+                {
+                    "points": 300,
                     "question": "Am 08.03.2026 wurde FCL-II-Spieler Louis Ameskamp mit Gelb-Rot vom Platz gestellt. In welcher Minute verließ er den Platz? (Toleranz: +/- 2 Minuten)",
                     "answer": "31. Minute"
                 },
                 {
-                    "points": 300,
+                    "points": 400,
                     "question": "Wer war in der Saison 2024/2025 der drittbeste Ligatorschütze der 2. Herren?",
                     "answer": "Ortmann/Kreßmann (3 Tore, punktgleich auf Platz 3)"
-                },
-                {
-                    "points": 400,
-                    "question": "Von welchem Verein kam der letzte Spieler, der gegen die FCL II einen Hattrick geschossen hat?",
-                    "answer": "Jonas Eilers vom SV Bösel (24.04.2026)"
                 },
                 {
                     "points": 500,
@@ -125,61 +125,29 @@
             "question": [
                 {
                     "points": 100,
-                    "question": "tbd. 100",
-                    "answer": "tbd."
+                    "question": "Welches Tier kann durch seinen Hintern atmen?",
+                    "answer": "Die Schildkröte"
                 },
                 {
                     "points": 200,
-                    "question": "tbd. 200",
-                    "answer": "tbd."
+                    "question": "Wie viele Nullen hat eine Trillion im Deutschen?",
+                    "answer": "18 Nullen"
                 },
                 {
                     "points": 300,
-                    "question": "tbd. 300",
-                    "answer": "tbd."
+                    "question": "Wie lange dauerte der kürzeste Krieg der Geschichte?",
+                    "answer": "38 Minuten"
                 },
                 {
                     "points": 400,
-                    "question": "tbd. 400",
-                    "answer": "tbd."
+                    "question": "Wie viele Knochen hat ein erwachsener Mensch ungefähr?",
+                    "answer": "206 Knochen"
                 },
                 {
                     "points": 500,
-                    "question": "tbd. 500",
-                    "answer": "tbd."
+                    "question": "Wie viele Oscars gewann der Film „Titanic“?",
+                    "answer": "11 Oscars"
                 }
-            ]
-        }
-    ],
-    "Teams": [
-        {
-            "name": "Team 1",
-            "score": 0,
-            "spieler": [
-                "Timo R",
-                "Julius",
-                "Noah",
-                "Timo B.(Raclett)"
-            ]
-        },
-        {
-            "name": "Team 2",
-            "score": 0,
-            "spieler": [
-                "Mario",
-                "Levi",
-                "Luca (Curry King Kane)",
-                "Johann"
-            ]
-        },
-        {
-            "name": "Team 3",
-            "score": 0,
-            "spieler": [
-                "Klaus S",
-                "Niklas ",
-                "Michi (1,2 Tip)",
-                "Tim (Timgioh)"
             ]
         }
     ]
