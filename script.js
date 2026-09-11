@@ -63,7 +63,6 @@ function modalOeffnen(frage, zelle, kategorieName) {
   modalAntwort.classList.remove("shown");
   buttonAntwortZeigen.style.display = "inline-block";
 
-  // neu: Bild nur zeigen, wenn die Frage eins hat
   if (frage.image) {
     modalBild.src = frage.image;
     modalBild.classList.add("shown");
